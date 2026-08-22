@@ -64,5 +64,18 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Hello Therma is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://www.nasdaqprivatemarket.com/
+Hello Therma is the original brand of Therma, Inc., the cold-chain and cooling intelligence company
+founded in San Francisco in 2014, which rebranded as **GlacierGrid** in February 2024 and now operates
+as GlacierGrid, Inc. It pairs LoRaWAN temperature/humidity sensors, cellular monitoring hubs and BAS
+integrations with a cloud dashboard for multi-site refrigeration, HVAC and energy monitoring.
+
+GlacierGrid publishes no REST, GraphQL or SOAP API and no developer portal. Its one machine-callable
+surface is a first-party remote **Model Context Protocol** server at `https://mcp.glaciergrid.com/mcp`,
+marketed as the *GlacierGrid Connector for Claude* — read-only, OAuth-protected, account-scoped.
+
+- Company site: https://www.glaciergrid.com/
+- Connector (MCP) docs: https://www.glaciergrid.com/connector
+- Status page: https://www.glaciergrid.com/status-page
+
+> The legacy `hellotherma.com` domain no longer belongs to this company: it now 301s to
+> `www.therma.com`, an unrelated California mechanical/HVAC contractor.

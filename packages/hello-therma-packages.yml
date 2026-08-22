@@ -1,0 +1,48 @@
+generated: '2026-08-22'
+method: searched
+source: >-
+  registry.npmjs.org search, pypi.org, api.github.com/orgs/glaciergrid, and the GlacierGrid
+  site (there is no SDK or developer page to derive from)
+summary: >-
+  GlacierGrid publishes no client libraries. Every registry and repository surface was checked
+  and each is empty, which is consistent with the company shipping an MCP connector rather
+  than an SDK-shaped API: an MCP client is the client, so there is nothing to package.
+package_count: 0
+packages: []
+registries_checked:
+- registry: npm
+  query: https://registry.npmjs.org/-/v1/search?text=glaciergrid
+  result_count: 0
+  version: null
+  published: null
+- registry: npm
+  query: https://registry.npmjs.org/-/v1/search?text=hellotherma
+  result_count: 0
+  version: null
+  published: null
+- registry: pypi
+  query: https://pypi.org/pypi/glaciergrid/json
+  status: 404
+  version: null
+  published: null
+- registry: pypi
+  query: https://pypi.org/pypi/hellotherma/json
+  status: 404
+  version: null
+  published: null
+source_repositories_checked:
+- url: https://api.github.com/orgs/glaciergrid
+  status: 200
+  public_repos: 0
+  org_created: '2022-05-26'
+  note: >-
+    The GlacierGrid GitHub organization exists and is claimed (blog https://www.glaciergrid.com/)
+    but publishes zero public repositories, so there is no source-distributed client either.
+- url: https://api.github.com/orgs/hellotherma
+  status: 404
+- url: https://api.github.com/orgs/therma
+  status: 404
+cdn_distributions: []
+note: >-
+  No SDK, CLI, embeddable component or npm/PyPI/Maven/NuGet/crates/RubyGems/Packagist artifact
+  was found under either the GlacierGrid or the legacy Therma / Hello Therma name.

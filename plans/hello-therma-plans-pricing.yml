@@ -1,0 +1,32 @@
+generated: '2026-08-22'
+method: searched
+source: https://www.glaciergrid.com/en/llms.txt
+summary: >-
+  GlacierGrid publishes no pricing page. https://www.glaciergrid.com/pricing returns 404 and
+  no tier, quota or list price appears anywhere on the site. The commercial motion is a
+  request-a-demo sales gate with a free 90-day pilot. The only figures the company publishes
+  are the deal-size band and pilot offer it states in its own llms.txt, recorded below as
+  company statements rather than as purchasable plans.
+plan_count: 0
+plans: []
+pricing_page:
+  url: https://www.glaciergrid.com/pricing
+  status: 404
+commercial_model: enterprise-sales
+published_statements:
+- statement: 'Deal sizes: 50,000 to 100,000 USD annually'
+  source: https://www.glaciergrid.com/en/llms.txt
+- statement: Free 90-day pilot is the primary top-of-funnel offer
+  source: https://www.glaciergrid.com/en/llms.txt
+- statement: 'Primary customer profile: chains with 50 to 500 locations, targeting 200-plus enterprise'
+  source: https://www.glaciergrid.com/en/llms.txt
+entry_points:
+- name: Request a Demo
+  url: https://www.glaciergrid.com/request-demo
+  status: 200
+- name: Pilot
+  url: https://www.glaciergrid.com/pilot
+  status: 200
+note: >-
+  The MCP connector itself is not separately priced or metered in any published material; it
+  is presented as included with an active GlacierGrid account.

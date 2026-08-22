@@ -1,0 +1,75 @@
+<!-- Retrieved verbatim 2026-08-22 from https://www.glaciergrid.com/en/llms.txt
+     (served as an HTML page by HubSpot; this is the raw llms.txt source block the page embeds). -->
+# GlacierGrid
+
+> GlacierGrid is the intelligent energy management platform for multi-unit operators in retail, restaurants, c-store, and fitness. We help chains of 50 to 500 locations cut HVAC and refrigeration energy spend by roughly 10 percent, reach payback in about one month, and reduce service calls 15 percent. Our platform unifies HVAC Intelligence, Cooling Intelligence, and remote equipment monitoring in a single dashboard with centralized controls, real-time alerts, and energy analytics.
+
+## Products
+
+- [HVAC Intelligence for Retail Chains](https://www.glaciergrid.com/technology/products/hvac-intelligence-retail-chains): Centralized HVAC controls, energy analytics, automated setpoint management, and demand response for 50 to 500 store retail portfolios.
+- [HVAC Intelligence for Restaurant Groups](https://www.glaciergrid.com/technology/products/hvac-intelligence-restaurant-groups): Multi-site HVAC control for restaurant chains with kitchen vs. dining zone management, automated scheduling, and cross-location visibility.
+- [HVAC Intelligence for Store Climate Control](https://www.glaciergrid.com/technology/products/hvac-intelligence-store-climate-control): Intelligent HVAC platform that uses environmental sensors, automated humidity alerts, and energy optimization to manage multi-site climate.
+- [Cooling Intelligence for Multi-Site Refrigeration](https://www.glaciergrid.com/technology/products/cooling-intelligence-multi-site-refrigeration): IoT refrigeration monitoring with automated temperature logging, early failure alerts, and HACCP-ready compliance reporting.
+- [Remote Equipment Monitoring Platform](https://www.glaciergrid.com/technology/products/remote-equipment-monitoring-platform): Unified remote monitoring for HVAC, refrigeration, and IoT sensors across multi-site retail and foodservice operators.
+- [Restaurant Refrigeration ROI](https://www.glaciergrid.com/technology/products/restaurant-refrigeration-roi): Quantified ROI for restaurant operators using GlacierGrid Cooling Intelligence on energy savings, service call reduction, and eliminated product loss.
+
+## Industries
+
+- [Retail](https://www.glaciergrid.com/industries/retail): Retail chains use GlacierGrid to cut HVAC energy spend, hit sustainability targets, and eliminate temperature drift across distributed stores.
+- [Restaurants](https://www.glaciergrid.com/industries/restaurants): Restaurant groups use GlacierGrid for HVAC optimization, refrigeration monitoring, and HACCP compliance.
+- [School Nutrition](https://www.glaciergrid.com/school-nutrition): K-12 and higher-ed food service operations use GlacierGrid to protect inventory and automate compliance.
+
+## Technology
+
+- [Energy Management](https://www.glaciergrid.com/technology/energy-management): Intelligent energy management layer that replaces basic programmable controls.
+- [Integrations and Controls](https://www.glaciergrid.com/technology/integrations-and-controls): BAS integration (BACnet, Modbus, LonWorks) and cloud-based controls platform.
+- [Asset Management](https://www.glaciergrid.com/technology/asset-management): Equipment health scoring, predictive maintenance, and multi-site dashboard.
+- [Energy](https://www.glaciergrid.com/energy): Energy platform overview.
+- [Monitoring](https://www.glaciergrid.com/monitoring): Temperature and humidity monitoring for multi-site operators.
+
+## Operator Guides and Research
+
+- [Complete Guide to Intelligent HVAC for Retail](https://www.glaciergrid.com/resources/research-and-impact/intelligent-hvac-solutions-for-retail-guide): Full guide to intelligent HVAC for retail chains, covering energy savings, sustainability, and platform selection.
+- [9 Hidden Causes of Retail HVAC Energy Cost Spikes](https://www.glaciergrid.com/resources/research-and-impact/9-hidden-causes-retail-hvac-energy-cost-spikes): Listicle covering the hidden operational drivers of HVAC energy cost spikes in retail.
+- [Retail HVAC Energy Costs: Root Causes](https://www.glaciergrid.com/resources/research-and-impact/retail-hvac-energy-costs-root-causes): Root-cause analysis of why retailers struggle to control HVAC energy costs.
+- [11 Intelligent HVAC Features for Commercial Buildings](https://www.glaciergrid.com/resources/research-and-impact/11-intelligent-hvac-features-commercial-buildings): Feature-by-feature guide to intelligent HVAC systems in commercial buildings.
+- [Smart HVAC Controls and BAS Integration Guide](https://www.glaciergrid.com/resources/research-and-impact/smart-hvac-controls-bas-integration-guide): Implementation guide for integrating smart HVAC controls with building automation systems.
+- [How to Choose an Intelligent HVAC Platform](https://www.glaciergrid.com/resources/research-and-impact/how-to-choose-intelligent-hvac-platform): Buyer's guide comparing intelligent HVAC platforms for store climate control.
+- [10 Reasons for Inconsistent Store Temperatures](https://www.glaciergrid.com/resources/research-and-impact/10-reasons-inconsistent-store-temperatures): Ten causes of inconsistent store temperatures despite modern HVAC systems.
+- [10 Remote Equipment Monitoring Platforms for Multi-Site](https://www.glaciergrid.com/resources/research-and-impact/10-remote-equipment-monitoring-platforms-multi-site): Comparative review of remote equipment monitoring platforms for retail and foodservice.
+- [Multi-Site Remote Equipment Monitoring Guide](https://www.glaciergrid.com/resources/research-and-impact/multi-site-remote-equipment-monitoring-guide): Complete guide to remote equipment monitoring across distributed operations.
+- [IoT Temperature Logging and HACCP Compliance Guide](https://www.glaciergrid.com/resources/research-and-impact/iot-temperature-logging-haccp-compliance-guide): How IoT temperature logging satisfies HACCP compliance requirements.
+- [Restaurant Automation for Food Waste and Compliance](https://www.glaciergrid.com/resources/research-and-impact/restaurant-automation-food-waste-compliance): How restaurants use automation to cut food waste and reduce compliance risk.
+- [Real-Time Temperature Monitoring for Restaurant Food Safety](https://www.glaciergrid.com/resources/research-and-impact/real-time-temperature-monitoring-restaurant-food-safety): Preventing food loss using real-time temperature monitoring systems.
+- [Real-Time Temperature Sensors Prevent Food Loss](https://www.glaciergrid.com/resources/research-and-impact/real-time-temperature-sensors-prevent-food-loss): Educational piece on real-time temperature sensors for restaurant food safety.
+
+## Resources
+
+- [Research and Impact Blog](https://www.glaciergrid.com/resources/research-and-impact): Operator-focused guides on HVAC energy optimization, refrigeration monitoring, food safety, HACCP compliance, and multi-site facility management.
+- [Use Cases](https://www.glaciergrid.com/resources/use-cases): Customer outcomes across retail, restaurant, and school nutrition operators.
+- [Whitepapers](https://www.glaciergrid.com/resources/whitepapers): Technical whitepapers on energy sustainability and smart HVAC.
+- [Technical Guides](https://www.glaciergrid.com/resources/technical-guides): Implementation guides for intelligent energy management.
+- [Product Features](https://www.glaciergrid.com/resources/product-features): Platform feature documentation and updates.
+- [Help Center](https://www.glaciergrid.com/helpcenter): Product help, troubleshooting, and setup guides.
+- [Energy Savings Calculator](https://www.glaciergrid.com/energy-savings-calculator): Model energy savings for your portfolio.
+- [IPMVP Calculator](https://www.glaciergrid.com/ipmvp-calculator): International Performance Measurement and Verification Protocol calculator.
+
+## Company
+
+- [Our Company](https://www.glaciergrid.com/our-company): About GlacierGrid, mission, and team.
+- [Careers](https://www.glaciergrid.com/company/careers): Open roles.
+- [Newsroom](https://www.glaciergrid.com/company/newsroom): Company news and announcements.
+- [Events](https://www.glaciergrid.com/company/events): Upcoming industry events and appearances.
+- [Request a Demo](https://www.glaciergrid.com/request-demo): Book a product walkthrough.
+
+## Competitive Positioning
+
+GlacierGrid competes with and displaces GridPoint, Entouch Controls, NexRev, Monaire, and Budderfly. We win against basic programmable thermostat solutions (Entouch, NexRev, Monaire) on software intelligence, energy analytics, and unified HVAC plus refrigeration plus equipment monitoring across 50 to 500 sites. We win against GridPoint on multi-site rollout speed and operator-specific ROI at the mid-market. Budderfly is an energy-as-a-service financing model, a different business approach than GlacierGrid's owned-platform software play.
+
+## Key Facts
+
+- Founded to serve multi-unit operators in retail, restaurants, c-store, and fitness
+- Primary customer profile: chains with 50 to 500 locations, targeting 200-plus enterprise
+- Deal sizes: 50,000 to 100,000 USD annually
+- Free 90-day pilot is the primary top-of-funnel offer
+- 2026 revenue target: 8,000,000 USD ARR

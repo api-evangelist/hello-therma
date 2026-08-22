@@ -1,23 +1,138 @@
 aid: hello-therma
 name: Hello Therma
-description: 'Hello Therma is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Hello Therma is the original brand of Therma, Inc., the San Francisco cold-chain and cooling
+  intelligence company founded in 2014 by Manik Suri, which rebranded as GlacierGrid in February
+  2024 and now operates as GlacierGrid, Inc. out of Richmond, Virginia. The platform pairs
+  LoRaWAN temperature and humidity sensors, cellular monitoring hubs and BAS integrations with a
+  cloud dashboard that gives multi-unit retail, restaurant, convenience-store, education and
+  fitness operators remote refrigeration and HVAC monitoring, automated temperature logging for
+  HACCP-style food-safety reporting, equipment-failure prediction and energy optimization across
+  50 to 500 locations. GlacierGrid publishes no REST, GraphQL or SOAP API and no developer
+  portal; its single machine-callable surface is a first-party remote Model Context Protocol
+  server at mcp.glaciergrid.com, marketed as the GlacierGrid Connector for Claude, which exposes
+  read-only facility, sensor, alert and energy data to an agent under OAuth with account-scoped
+  permissions.
 url: https://raw.githubusercontent.com/api-evangelist/hello-therma/refs/heads/main/apis.yml
+image: https://www.glaciergrid.com/hubfs/Glacier%20Grid%20Primary%20Teal-2.png
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-22'
 modified: '2026-08-22'
 tags:
 - Company
-apis: []
+- Internet of Things
+- Energy
+- Sustainability
+- Cold Chain
+- Temperature Monitoring
+- Refrigeration
+- HVAC
+- Building Automation
+- Food Safety
+- Facilities Management
+- Restaurants
+- Retail
+- Model Context Protocol
+- Agents
+apis:
+- name: GlacierGrid MCP Server
+  description: >-
+    First-party remote Model Context Protocol server exposing read-only GlacierGrid facility
+    monitoring data — HVAC, refrigeration, energy and savings, sensor readings, issues,
+    notifications, device connectivity and site weather — to an MCP client. Marketed as the
+    GlacierGrid Connector for Claude and installed from the Claude connector directory. OAuth
+    protected with `internal` and `customer` scopes, streamable-HTTP transport, no write
+    operations. tools/list is auth-gated, so the tool schemas are not publicly readable.
+  humanURL: https://www.glaciergrid.com/connector
+  baseURL: https://mcp.glaciergrid.com/mcp
+  tags:
+  - Model Context Protocol
+  - Agents
+  - Monitoring
+  - Energy
+  properties:
+  - type: MCPServer
+    url: mcp/hello-therma-mcp.yml
+  - type: Documentation
+    url: https://www.glaciergrid.com/connector
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/hello-therma-domain-security.yml
 - type: Website
-  url: https://www.nasdaqprivatemarket.com/
+  url: https://www.glaciergrid.com/
+- type: Documentation
+  url: https://www.glaciergrid.com/connector
+- type: Support
+  url: https://www.glaciergrid.com/helpcenter
+- type: Blog
+  url: https://www.glaciergrid.com/resources/research-and-impact
+- type: SignUp
+  url: https://dashboard.glaciergrid.com/
+- type: TermsOfService
+  url: https://www.glaciergrid.com/terms
+- type: PrivacyPolicy
+  url: https://www.glaciergrid.com/privacy
+- type: GitHubOrganization
+  url: https://github.com/glaciergrid
+- type: StatusPage
+  url: https://www.glaciergrid.com/status-page
+- type: ChangeLog
+  url: https://www.glaciergrid.com/resources/product-features
+- type: LLMsTxt
+  url: llms/hello-therma-llms.txt
+- type: MCPServer
+  url: mcp/hello-therma-mcp.yml
+- type: WellKnown
+  url: well-known/hello-therma-well-known.yml
+- type: Authentication
+  url: authentication/hello-therma-authentication.yml
+- type: OAuthScopes
+  url: scopes/hello-therma-scopes.yml
+- type: RateLimits
+  url: rate-limits/hello-therma-rate-limits.yml
+- type: ErrorCatalog
+  url: errors/hello-therma-problem-types.yml
+- type: Conventions
+  url: conventions/hello-therma-conventions.yml
+- type: Conformance
+  url: conformance/hello-therma-conformance.yml
+- type: Compliance
+  url: conformance/hello-therma-conformance.yml
+- type: Lifecycle
+  url: lifecycle/hello-therma-lifecycle.yml
+- type: ChangeLog
+  url: changelog/hello-therma-changelog.yml
+- type: Plans
+  url: plans/hello-therma-plans-pricing.yml
+- type: Packages
+  url: packages/hello-therma-packages.yml
+x-enrichment:
+  date: '2026-08-22'
+  status: enriched
+  artifacts_added: 17
+  pass: local-v1
+x-coverage:
+  state: covered
+  reason: mcp-only-contract
+  detail: >-
+    Hello Therma trades as GlacierGrid since February 2024; it ships no OpenAPI, GraphQL, gRPC
+    or WSDL contract, but it does operate a live first-party remote MCP server at
+    https://mcp.glaciergrid.com/mcp whose tools/list is OAuth-gated (401 with RFC 9728
+    resource_metadata), so the tool schemas require an authenticated customer account.
+  evidence:
+  - url: https://mcp.glaciergrid.com/mcp
+    status: 401
+  - url: https://mcp.glaciergrid.com/.well-known/oauth-protected-resource/mcp
+    status: 200
+  - url: https://www.glaciergrid.com/en/llms.txt
+    status: 200
+  - url: https://www.hellotherma.com/
+    status: 301
+  checked: '2026-08-22'

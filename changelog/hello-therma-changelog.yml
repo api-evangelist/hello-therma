@@ -1,0 +1,46 @@
+generated: '2026-08-22'
+method: searched
+source: https://www.glaciergrid.com/resources/product-features
+summary: >-
+  GlacierGrid publishes a dated "Product Features" release-notes feed with an RSS endpoint.
+  It covers dashboard/product releases, not API changes — there is no API changelog because
+  there is no public API contract. The feed has not been updated since March 2024, which is
+  itself the finding: the newest agent surface this company ships (the MCP connector) is not
+  represented in it at all.
+scheme: dated release notes (blog-style), no semantic version numbers
+current_version: null
+feed:
+  html: https://www.glaciergrid.com/resources/product-features
+  rss: https://www.glaciergrid.com/resources/product-features/rss.xml
+covers: product / dashboard features
+covers_api_changes: false
+last_entry_date: '2024-03-01'
+staleness_note: >-
+  Newest entry observed 2026-08-22 is dated 1 March 2024 — roughly 2.5 years old. The
+  GlacierGrid Connector for Claude, live at mcp.glaciergrid.com, has no entry.
+entries:
+- date: '2024-03-01'
+  title: 'GlacierGrid''s People and Teams Update: Empowering Team Members with Personalized Notification Control'
+  tags: [Feature Release, Dashboard Update, New Feature]
+  breaking: false
+  url: https://www.glaciergrid.com/resources/product-features/glaciergrids-people-and-teams-update
+- date: '2024-02-26'
+  title: 'GlacierGrid''s Reports Tab: Optimize Your Operations'
+  breaking: false
+  url: https://www.glaciergrid.com/resources/product-features/glaciergrids-reports-tab
+- date: '2024-02-26'
+  title: 'Empowering Businesses: Strategic Advantages of GlacierGrid''s Temperature Insights'
+  tags: [Product Feature Deep Dive]
+  breaking: false
+  url: https://www.glaciergrid.com/resources/product-features/empowering-businesses-strategic-advantages-of-thermas-temperature-insights
+- date: '2024-02-26'
+  title: 'GlacierGrid''s Enhanced People & Teams: Introducing New Features to the People & Teams Page'
+  tags: [Feature Release, Dashboard Update, New Feature]
+  breaking: false
+  url: https://www.glaciergrid.com/resources/product-features/glaciergrids-enhanced-people-teams-introducing-new-features-to-the-people-teams-page
+- date: null
+  title: 'GlacierGrid''s Updated Data Points Feature: Harness the Power of Detailed Insights'
+  tags: [Energy Management, Energy Efficiency]
+  breaking: false
+  url: https://www.glaciergrid.com/resources/product-features/glaciergrids-updated-data-points-feature-harness-the-power-of-detailed-insights
+  note: Date not surfaced on the index card.

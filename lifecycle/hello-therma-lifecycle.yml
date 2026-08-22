@@ -1,0 +1,83 @@
+generated: '2026-08-22'
+method: searched
+source: https://www.glaciergrid.com/status-page
+summary: >-
+  GlacierGrid runs a first-party status page with named components and a dated incident
+  history. It publishes no API versioning policy, no deprecation policy, no Sunset/Deprecation
+  header commitment (RFC 8594) and no SLA — which is consistent with having no public API
+  contract to version. The MCP server carries no version in its path and its protocol version
+  could not be read (the handshake is auth-gated).
+
+status_page:
+  present: true
+  url: https://www.glaciergrid.com/status-page
+  status: 200
+  hosted: first-party (HubSpot page, not Statuspage/Instatus)
+  observed: '2026-08-22'
+  overall_state_observed: Operational
+  components:
+  - name: GlacierGrid Server
+    description: Main server used for collecting and reporting data from hardware to the GlacierGrid Dashboard.
+    state_observed: Operational
+  - name: Cellular
+    description: GlacierGrid Monitoring Hubs transmit data through an international SIM card.
+    state_observed: Operational
+  - name: IOS App
+    state_observed: Operational
+  - name: Android App
+    state_observed: Operational
+  incident_history:
+    published: true
+    counters_observed:
+      upcoming_maintenance: 0
+      incidents_last_30_days: 2
+      maintenance_last_30_days: 0
+    most_recent_dated_incidents:
+    - date: '2025-10-20'
+      title: Partner Server Outage
+      state: Resolved
+      summary: Upstream AWS disruption caused increased error rates and latency; GlacierGrid Server connectivity and delayed data updates.
+    - date: '2025-10-08'
+      state: Resolved
+      summary: Upstream cellular network issues from the SIM provider impacted some gateway connectivity.
+    - date: '2024-12-17'
+      state: Resolved
+      summary: AWS gateway connection statuses flip-flopping; internal/gateway time desynchronization fixed by rollout.
+
+versioning_policy:
+  published: false
+  note: >-
+    No versioning scheme is documented. The MCP endpoint is unversioned (/mcp). The MCP
+    protocol version the server negotiates could not be observed because initialize is
+    auth-gated.
+
+deprecation_policy:
+  published: false
+  sunset_header: not-observed
+  deprecation_header: not-observed
+  rfc_8594: false
+
+sla:
+  published: false
+  note: No uptime commitment or service credit schedule appears on the site; the MSA at https://www.glaciergrid.com/msa is the commercial contract surface.
+
+brand_lifecycle:
+  events:
+  - date: '2024-02'
+    event: rebrand
+    from: Therma (hellotherma.com)
+    to: GlacierGrid (glaciergrid.com)
+    source: https://www.prnewswire.com/news-releases/therma-rebrands-as-glaciergrid-the-worlds-leading-cooling-intelligence-platform-302071037.html
+  - date: observed 2026-08-22
+    event: legacy-domain-released
+    detail: >-
+      https://www.hellotherma.com/ now 301s to https://www.therma.com/, an unrelated
+      California mechanical/HVAC contractor. Every legacy hellotherma.com deep link is dead
+      (e.g. /solutions/operational-efficiency -> 404 on therma.com), including links the
+      current glaciergrid.com homepage still emits.
+    evidence:
+    - url: https://www.hellotherma.com/
+      status: 301
+      redirects_to: https://www.therma.com/
+    - url: http://www.hellotherma.com/solutions/operational-efficiency
+      status: 404

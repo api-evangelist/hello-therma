@@ -1,0 +1,39 @@
+generated: '2026-08-22'
+method: probed
+source: https://mcp.glaciergrid.com/mcp
+format: json-rpc-2.0
+rfc9457: false
+summary: >-
+  GlacierGrid publishes no error reference. There is no OpenAPI to derive 4xx/5xx responses
+  from. The single entry below is the error envelope actually observed on the live MCP
+  endpoint; everything past the auth wall is unobservable without a customer account.
+envelope:
+  media_type: application/json
+  shape: '{"jsonrpc":"2.0","error":{"code":<int>,"message":"<string>"},"id":<id|null>}'
+  code_space: JSON-RPC 2.0 (MCP uses the -32000..-32099 implementation-defined range)
+problem_types:
+- code: -32001
+  http_status: 401
+  title: Unauthorized
+  message: 'Unauthorized: Bearer token required'
+  observed: '2026-08-22'
+  observed_on:
+  - method: tools/list
+  - method: initialize
+  remediation: >-
+    Obtain an OAuth access token from https://mcp.glaciergrid.com/token via the
+    authorization_code + PKCE flow (see authentication/hello-therma-authentication.yml) and
+    resend with an Authorization: Bearer header. The 401 carries
+    WWW-Authenticate: Bearer resource_metadata=... so a compliant MCP client can discover the
+    authorization server automatically.
+  method: probed
+coverage_note: >-
+  1 error observed. GlacierGrid documents no error codes, no decline codes and no error
+  reference page; the rest of the server's error space is behind authentication.
+docs_searched:
+- url: https://www.glaciergrid.com/connector
+  status: 200
+- url: https://www.glaciergrid.com/helpcenter
+  status: 200
+- url: https://www.glaciergrid.com/en/llms.txt
+  status: 200

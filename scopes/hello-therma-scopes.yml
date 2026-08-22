@@ -1,0 +1,35 @@
+generated: '2026-08-22'
+method: probed
+source: https://mcp.glaciergrid.com/.well-known/oauth-authorization-server
+docs: https://www.glaciergrid.com/connector
+summary: >-
+  GlacierGrid's MCP authorization server advertises exactly two scopes. There is no published
+  scopes/permissions reference page on the marketing site or the help center, so the
+  descriptions below are inferred ONLY from the names plus the access statements GlacierGrid
+  publishes on its connector page; they are marked as such and are not vendor copy.
+authorization_server: https://mcp.glaciergrid.com/
+protected_resources:
+- https://mcp.glaciergrid.com/
+- https://mcp.glaciergrid.com/mcp
+scope_count: 2
+scopes:
+- name: customer
+  description_source: not-published
+  inferred_meaning: >-
+    Customer-facing access to the authenticated account's own facility data. GlacierGrid
+    states "Access is scoped to the locations your account already covers. The connector
+    shows you nothing beyond what your GlacierGrid login already grants."
+  access: read-only
+  evidence: https://www.glaciergrid.com/connector
+- name: internal
+  description_source: not-published
+  inferred_meaning: >-
+    Not documented publicly. The name suggests a GlacierGrid-internal audience rather than a
+    customer one; no published material describes it.
+  access: unknown
+  evidence: https://mcp.glaciergrid.com/.well-known/oauth-authorization-server
+gaps:
+- >-
+  No scope reference page exists. A customer or an agent developer cannot learn what
+  `internal` grants, nor whether `customer` is required for every tool, without contacting
+  support@glaciergrid.com.

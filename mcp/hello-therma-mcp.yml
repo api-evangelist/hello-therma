@@ -1,0 +1,123 @@
+generated: '2026-08-22'
+method: probed
+source: https://mcp.glaciergrid.com/mcp
+docs: https://www.glaciergrid.com/connector
+name: GlacierGrid MCP Server
+status: published
+summary: >-
+  GlacierGrid (formerly Therma / Hello Therma) operates a first-party remote MCP server that
+  exposes read-only facility monitoring data — HVAC, refrigeration, energy and savings, sensor
+  readings, issues, notifications, device connectivity and site weather — to an MCP client.
+  The company markets it as "the GlacierGrid Connector for Claude" and instructs customers to
+  add it from the Claude connector directory. It is the ONLY machine-callable API surface this
+  company publishes: there is no REST OpenAPI, no GraphQL endpoint and no public developer portal.
+
+deployment:
+  mode: remote
+  endpoint: https://mcp.glaciergrid.com/mcp
+  auth: oauth
+  verified: probed
+
+transport: streamable-http
+protocol_note: >-
+  GET https://mcp.glaciergrid.com/health returns
+  {"status":"ok","transport":"streamable-http","auth":"oauth"} — the server states its own
+  transport and auth model.
+
+x-evidence:
+  fetched: '2026-08-22'
+  probes:
+  - url: https://mcp.glaciergrid.com/
+    method: GET
+    http_status: 200
+    note: 'HTML landing page, <title>GlacierGrid MCP Server</title>, description "HVAC, refrigeration, and energy management data access via the Model Context Protocol".'
+  - url: https://mcp.glaciergrid.com/health
+    method: GET
+    http_status: 200
+    body: '{"status":"ok","transport":"streamable-http","auth":"oauth"}'
+  - url: https://mcp.glaciergrid.com/mcp
+    method: POST
+    payload: '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'
+    http_status: 401
+    body: '{"jsonrpc":"2.0","error":{"code":-32001,"message":"Unauthorized: Bearer token required"},"id":null}'
+    www_authenticate: 'Bearer resource_metadata="https://mcp.glaciergrid.com/.well-known/oauth-protected-resource/mcp"'
+  - url: https://mcp.glaciergrid.com/mcp
+    method: POST
+    payload: 'initialize (protocolVersion 2026-06-18)'
+    http_status: 401
+    note: initialize is gated identically; no anonymous handshake is permitted.
+  - url: https://mcp.glaciergrid.com/.well-known/oauth-protected-resource/mcp
+    method: GET
+    http_status: 200
+    file: well-known/hello-therma-oauth-protected-resource-mcp.json
+
+ownership:
+  verified: true
+  basis: >-
+    The server's own RFC 9728 and RFC 8414 metadata name the company: resource_documentation
+    and service_documentation both point at https://glaciergrid.com/. GlacierGrid's own
+    /connector page documents the connector, its subprocessor page names Anthropic as the
+    processor for it, and support is support@glaciergrid.com. GlacierGrid is the current brand
+    of Therma° / Hello Therma, rebranded February 2024.
+
+tools:
+  status: auth-gated
+  note: >-
+    tools/list requires a bearer token, so the real tool names and inputSchemas could not be
+    read. NOTHING BELOW IS A TOOL NAME — these are the capability statements GlacierGrid
+    publishes on https://www.glaciergrid.com/connector, recorded verbatim so the surface is
+    documented without inventing an interface. Actual tool names and input schemas require
+    authenticated introspection with a customer account.
+  published_capabilities:
+  - Check open issues and equipment health across all sites at once
+  - 'Investigate a specific alert: what triggered it and the readings behind it'
+  - Pull energy savings by location and time period
+  - Spot HVAC units trending toward failure
+  - See which devices dropped offline and where
+  published_example_prompts:
+  - Which locations have open refrigeration alerts right now?
+  - What did we save on energy last month?
+  - Show me HVAC status for the Dallas region.
+  - What sensor readings triggered the alert at store 214?
+  data_domains:
+  - HVAC
+  - refrigeration
+  - energy and savings
+  - sensor readings
+  - issues
+  - notifications
+  - device connectivity
+  - site weather
+
+write_surface:
+  present: false
+  statement: >-
+    "The connector is read-only. It retrieves and reports your data. It never changes set
+    points, closes alerts, or modifies anything in your systems."
+  source: https://www.glaciergrid.com/connector
+
+authorization:
+  model: oauth2
+  scopes:
+  - internal
+  - customer
+  authorization_server: https://mcp.glaciergrid.com/
+  tenancy_note: >-
+    "Access is scoped to the locations your account already covers. The connector shows you
+    nothing beyond what your GlacierGrid login already grants."
+  prerequisites:
+  - An active GlacierGrid account
+  - GlacierGrid login credentials
+
+install_instructions_published:
+  source: https://www.glaciergrid.com/connector
+  steps:
+  - In Claude, open Settings -> Connectors.
+  - Find GlacierGrid in the directory and select Connect.
+  - Sign in with your GlacierGrid credentials when prompted.
+  - Start asking Claude about your sites.
+  note: >-
+    No copy-pasteable endpoint URL is published on the connector page; the endpoint recorded
+    above was established by probe and confirmed by the server's own OAuth metadata.
+
+support: support@glaciergrid.com

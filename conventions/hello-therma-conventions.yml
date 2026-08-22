@@ -1,0 +1,98 @@
+generated: '2026-08-22'
+method: probed
+source: >-
+  Live probes of https://mcp.glaciergrid.com/mcp and its OAuth metadata, plus
+  https://www.glaciergrid.com/connector
+summary: >-
+  There is no REST API and no OpenAPI, so the cross-cutting semantics recorded here are those
+  of the one machine-callable surface GlacierGrid ships: a read-only remote MCP server. The
+  wire conventions are MCP's (JSON-RPC 2.0 over streamable HTTP), not the provider's own, and
+  the provider documents none of them itself.
+
+surface: mcp
+protocol: JSON-RPC 2.0 over streamable HTTP (MCP)
+endpoint: https://mcp.glaciergrid.com/mcp
+
+auth_style:
+  model: oauth2 authorization_code + PKCE (S256)
+  header: 'Authorization: Bearer <token>'
+  discovery: RFC 9728 protected-resource metadata advertised in the 401 WWW-Authenticate header
+  see: authentication/hello-therma-authentication.yml
+
+error_envelope:
+  shape: JSON-RPC 2.0 error object
+  example: '{"jsonrpc":"2.0","error":{"code":-32001,"message":"Unauthorized: Bearer token required"},"id":null}'
+  rfc9457: false
+  see: errors/hello-therma-problem-types.yml
+
+rate_limit_signaling:
+  present: true
+  headers:
+  - ratelimit-policy
+  - ratelimit
+  documented_by_provider: false
+  see: rate-limits/hello-therma-rate-limits.yml
+
+request_id_tracing:
+  provider_header: not-observed
+  note: >-
+    No x-request-id / x-correlation-id is emitted by the provider. Edge infrastructure adds
+    x-amz-cf-id (CloudFront) and x-envoy-upstream-service-time, which are not a supported
+    tracing contract.
+
+versioning:
+  in_path: false
+  in_header: false
+  note: The endpoint is unversioned. MCP protocol version negotiation happens in initialize, which is auth-gated.
+
+pagination:
+  documented: false
+  note: Cannot be observed; tools/list is auth-gated and no tool schemas are published.
+
+field_expansion: not-documented
+sparse_fieldsets: not-documented
+metadata_fields: not-documented
+
+idempotency:
+  status: na
+  reason: >-
+    The published surface is read-only. GlacierGrid states the connector "never changes set
+    points, closes alerts, or modifies anything in your systems", so there is no write to
+    make idempotent and no Idempotency-Key header to document.
+  source: https://www.glaciergrid.com/connector
+
+dry_run_mode:
+  status: na
+  reason: No write surface, so there is nothing to rehearse.
+
+reversibility:
+  status: na
+  grade: na
+  reason: >-
+    No write surface. The GlacierGrid Connector is explicitly read-only — it retrieves and
+    reports data and modifies nothing — so there is no action for an agent to take back and
+    no reversal operation, window or restore path to document. Recorded as `na` rather than
+    absent so the honest zero is distinguishable from an unchecked one.
+  evidence:
+  - url: https://www.glaciergrid.com/connector
+    status: 200
+    statement: >-
+      "The connector is read-only. It retrieves and reports your data. It never changes set
+      points, closes alerts, or modifies anything in your systems."
+  write_surfaces: []
+  reversal_operations: []
+
+tenancy:
+  model: account-scoped
+  statement: >-
+    "Access is scoped to the locations your account already covers. The connector shows you
+    nothing beyond what your GlacierGrid login already grants."
+  source: https://www.glaciergrid.com/connector
+
+cross_links:
+  authentication: authentication/hello-therma-authentication.yml
+  scopes: scopes/hello-therma-scopes.yml
+  errors: errors/hello-therma-problem-types.yml
+  rate_limits: rate-limits/hello-therma-rate-limits.yml
+  lifecycle: lifecycle/hello-therma-lifecycle.yml
+  mcp: mcp/hello-therma-mcp.yml

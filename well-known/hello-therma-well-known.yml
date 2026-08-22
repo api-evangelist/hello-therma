@@ -1,0 +1,120 @@
+generated: '2026-08-22'
+method: probed
+source: >-
+  Live probes of every host reachable for this company on 2026-08-22 —
+  www.glaciergrid.com (marketing/docs), dashboard.glaciergrid.com (customer app),
+  mcp.glaciergrid.com (remote MCP server), and the legacy hellotherma.com brand host.
+note: >-
+  Hello Therma trades today as GlacierGrid (rebranded February 2024). The only host that
+  serves real /.well-known documents is mcp.glaciergrid.com, which publishes RFC 9728
+  OAuth protected-resource metadata and RFC 8414 authorization-server metadata for its
+  remote MCP server. dashboard.glaciergrid.com is a single-page app that answers 200 with
+  an HTML shell for EVERY path probed (including /.well-known/*), so none of its 200s are
+  documents and all are recorded as misses. The legacy hellotherma.com apex now 301s off
+  this company entirely, to www.therma.com — an unrelated California mechanical/HVAC
+  contractor — so it serves nothing for GlacierGrid.
+hosts:
+- host: mcp.glaciergrid.com
+  role: remote MCP server (the company's only public machine-callable surface)
+  documents:
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    file: well-known/hello-therma-oauth-protected-resource.json
+    content_type: application/json
+    note: RFC 9728 protected-resource metadata for the server root.
+  - path: /.well-known/oauth-protected-resource/mcp
+    status: 200
+    file: well-known/hello-therma-oauth-protected-resource-mcp.json
+    content_type: application/json
+    note: >-
+      RFC 9728 metadata for the /mcp resource; this is the exact document the
+      WWW-Authenticate challenge on a 401 points at.
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: well-known/hello-therma-oauth-authorization-server.json
+    content_type: application/json
+    note: RFC 8414 authorization-server metadata; advertises PKCE S256 and dynamic client registration.
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: www.glaciergrid.com
+  role: marketing site and help center (HubSpot CMS, Cloudflare edge)
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: dashboard.glaciergrid.com
+  role: customer dashboard (single-page app)
+  note: >-
+    SPA catch-all. Every path returns 200 text/html with the same ~32KB application shell,
+    including /openapi.json, /graphql, /robots.txt and every /.well-known/* path. None is a
+    document; all are recorded as misses per the pipeline's soft-200 rule.
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: null
+    content_type: text/html
+    result: miss
+    note: SPA shell, not a document.
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: null
+    content_type: text/html
+    result: miss
+    note: SPA shell, not a document.
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: null
+    content_type: text/html
+    result: miss
+    note: SPA shell, not a document.
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    file: null
+    content_type: text/html
+    result: miss
+    note: SPA shell, not a document.
+  - path: /.well-known/api-catalog
+    status: 200
+    file: null
+    content_type: text/html
+    result: miss
+    note: SPA shell, not a document.
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    file: null
+    content_type: text/html
+    result: miss
+    note: SPA shell, not a document.
+  - path: /.well-known/agent-card.json
+    status: 200
+    file: null
+    content_type: text/html
+    result: miss
+    note: SPA shell, not a document.
+  - path: /.well-known/agent.json
+    status: 200
+    file: null
+    content_type: text/html
+    result: miss
+    note: SPA shell, not a document.

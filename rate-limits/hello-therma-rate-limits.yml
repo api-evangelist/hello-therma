@@ -1,0 +1,41 @@
+generated: '2026-08-22'
+method: probed
+source: https://mcp.glaciergrid.com/mcp
+summary: >-
+  GlacierGrid publishes no rate-limit documentation anywhere on its marketing site or help
+  center. The limits below were read off the LIVE response headers of the MCP server on an
+  unauthenticated request — the server emits IETF draft RateLimit fields, so an agent gets the
+  runtime signal even though the docs are silent.
+limit_count: 1
+rate_limits:
+- scope: per-client (observed on an unauthenticated request to the MCP endpoint)
+  endpoint: https://mcp.glaciergrid.com/mcp
+  limit: 2000
+  window_seconds: 900
+  window: 15 minutes
+  burst: null
+  policy_header: 'ratelimit-policy: 2000;w=900'
+  observed_header: 'ratelimit: limit=2000, remaining=1999, reset=900'
+  method: probed
+  observed: '2026-08-22'
+  note: >-
+    Authenticated limits may differ; only the anonymous path could be observed. Whether the
+    counter is keyed on IP, OAuth client or account is not stated.
+response_headers:
+- name: ratelimit-policy
+  spec: IETF draft-ietf-httpapi-ratelimit-headers
+  example: 2000;w=900
+- name: ratelimit
+  spec: IETF draft-ietf-httpapi-ratelimit-headers
+  example: 'limit=2000, remaining=1999, reset=900'
+retry_after:
+  observed: false
+  note: No Retry-After header was seen; the 429 response could not be triggered ethically from a single probe.
+exhaustion_status_code: unknown
+documentation:
+  published: false
+  searched:
+  - https://www.glaciergrid.com/connector
+  - https://www.glaciergrid.com/helpcenter
+  - https://www.glaciergrid.com/en/llms.txt
+  note: None of these mention rate limits, quotas or throttling.
