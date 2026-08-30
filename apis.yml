@@ -43,6 +43,22 @@ tags:
 - Building Automation
 - Food Safety
 - Facilities Management
+- Restaurant
+- Retail
+- MCP
+- Agents
+tags_raw:
+- Company
+- Internet of Things
+- Energy
+- Sustainability
+- Cold Chain
+- Temperature Monitoring
+- Refrigeration
+- HVAC
+- Building Automation
+- Food Safety
+- Facilities Management
 - Restaurants
 - Retail
 - Model Context Protocol
@@ -59,6 +75,11 @@ apis:
   humanURL: https://www.glaciergrid.com/connector
   baseURL: https://mcp.glaciergrid.com/mcp
   tags:
+  - MCP
+  - Agents
+  - Monitoring
+  - Energy
+  tags_raw:
   - Model Context Protocol
   - Agents
   - Monitoring
