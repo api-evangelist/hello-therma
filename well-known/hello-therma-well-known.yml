@@ -1,37 +1,39 @@
-generated: '2026-08-22'
+generated: '2026-09-19'
 method: probed
-source: >-
-  Live probes of every host reachable for this company on 2026-08-22 —
-  www.glaciergrid.com (marketing/docs), dashboard.glaciergrid.com (customer app),
-  mcp.glaciergrid.com (remote MCP server), and the legacy hellotherma.com brand host.
-note: >-
-  Hello Therma trades today as GlacierGrid (rebranded February 2024). The only host that
-  serves real /.well-known documents is mcp.glaciergrid.com, which publishes RFC 9728
-  OAuth protected-resource metadata and RFC 8414 authorization-server metadata for its
-  remote MCP server. dashboard.glaciergrid.com is a single-page app that answers 200 with
-  an HTML shell for EVERY path probed (including /.well-known/*), so none of its 200s are
-  documents and all are recorded as misses. The legacy hellotherma.com apex now 301s off
-  this company entirely, to www.therma.com — an unrelated California mechanical/HVAC
-  contractor — so it serves nothing for GlacierGrid.
+source: Live probes of every host reachable for this company on 2026-08-22 — www.glaciergrid.com (marketing/docs),
+  dashboard.glaciergrid.com (customer app), mcp.glaciergrid.com (remote MCP server), and the legacy hellotherma.com
+  brand host.
+note: 'Hello Therma trades today as GlacierGrid (rebranded February 2024). The only host that serves real
+  /.well-known documents is mcp.glaciergrid.com, which publishes RFC 9728 OAuth protected-resource metadata
+  and RFC 8414 authorization-server metadata for its remote MCP server. dashboard.glaciergrid.com is a
+  single-page app that answers 200 with an HTML shell for EVERY path probed (including /.well-known/*),
+  so none of its 200s are documents and all are recorded as misses. The legacy hellotherma.com apex now
+  301s off this company entirely, to www.therma.com — an unrelated California mechanical/HVAC contractor
+  — so it serves nothing for GlacierGrid.
+
+
+  MCP-host OAuth discovery added 2026-09-19 (roadmap#321/#337): the harvest visits a provider''s primary
+  hosts, and RFC 9728 protected-resource metadata lives on the MCP host, so these documents existed and
+  were invisible to the scorer. Fetched live and validated on `resource`/`issuer`; one negative control
+  per host.'
 hosts:
 - host: mcp.glaciergrid.com
   role: remote MCP server (the company's only public machine-callable surface)
   documents:
   - path: /.well-known/oauth-protected-resource
     status: 200
-    file: well-known/hello-therma-oauth-protected-resource.json
+    file: hello-therma-oauth-protected-resource.json
     content_type: application/json
     note: RFC 9728 protected-resource metadata for the server root.
   - path: /.well-known/oauth-protected-resource/mcp
     status: 200
-    file: well-known/hello-therma-oauth-protected-resource-mcp.json
+    file: hello-therma-oauth-protected-resource-mcp.json
     content_type: application/json
-    note: >-
-      RFC 9728 metadata for the /mcp resource; this is the exact document the
-      WWW-Authenticate challenge on a 401 points at.
+    note: RFC 9728 metadata for the /mcp resource; this is the exact document the WWW-Authenticate challenge
+      on a 401 points at.
   - path: /.well-known/oauth-authorization-server
     status: 200
-    file: well-known/hello-therma-oauth-authorization-server.json
+    file: hello-therma-oauth-authorization-server.json
     content_type: application/json
     note: RFC 8414 authorization-server metadata; advertises PKCE S256 and dynamic client registration.
   - path: /.well-known/openid-configuration
@@ -46,6 +48,15 @@ hosts:
     status: 404
   - path: /.well-known/ai-plugin.json
     status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    file: hello-therma-mcp-oauth-protected-resource.json
+    bytes: 198
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: hello-therma-mcp-oauth-authorization-server.json
+    bytes: 709
+  path_echo_control: passed
 - host: www.glaciergrid.com
   role: marketing site and help center (HubSpot CMS, Cloudflare edge)
   documents:
@@ -65,10 +76,9 @@ hosts:
     status: 404
 - host: dashboard.glaciergrid.com
   role: customer dashboard (single-page app)
-  note: >-
-    SPA catch-all. Every path returns 200 text/html with the same ~32KB application shell,
-    including /openapi.json, /graphql, /robots.txt and every /.well-known/* path. None is a
-    document; all are recorded as misses per the pipeline's soft-200 rule.
+  note: SPA catch-all. Every path returns 200 text/html with the same ~32KB application shell, including
+    /openapi.json, /graphql, /robots.txt and every /.well-known/* path. None is a document; all are recorded
+    as misses per the pipeline's soft-200 rule.
   documents:
   - path: /.well-known/security.txt
     status: 200
@@ -118,3 +128,15 @@ hosts:
     content_type: text/html
     result: miss
     note: SPA shell, not a document.
+x-mcp-probe:
+  probed: '2026-09-19'
+  issue: roadmap#321, roadmap#337
+  documents:
+  - host: https://mcp.glaciergrid.com
+    path: /.well-known/oauth-protected-resource
+    file: hello-therma-mcp-oauth-protected-resource.json
+  - host: https://mcp.glaciergrid.com
+    path: /.well-known/oauth-authorization-server
+    file: hello-therma-mcp-oauth-authorization-server.json
+  validated_on: resource (RFC 9728) / issuer (RFC 8414, OIDC)
+  negative_control: one per host; a 2xx JSON object at an impossible path discards the host
