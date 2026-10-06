@@ -45,7 +45,7 @@ x-type: company
 x-source: harvest:secondary-market
 specificationVersion: '0.20'
 created: '2026-08-22'
-modified: '2026-08-22'
+modified: '2026-10-06'
 tags:
 - Company
 - IoT
@@ -110,6 +110,10 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- url: https://www.glaciergrid.com/company/newsroom
+  type: Blog
+- url: https://www.glaciergrid.com/company/newsroom/rss.xml
+  type: BlogRSS
 - type: DomainSecurity
   url: security/hello-therma-domain-security.yml
 - type: Website
