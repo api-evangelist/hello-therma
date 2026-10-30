@@ -64,18 +64,118 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Hello Therma is the original brand of Therma, Inc., the cold-chain and cooling intelligence company
-founded in San Francisco in 2014, which rebranded as **GlacierGrid** in February 2024 and now operates
-as GlacierGrid, Inc. It pairs LoRaWAN temperature/humidity sensors, cellular monitoring hubs and BAS
-integrations with a cloud dashboard for multi-site refrigeration, HVAC and energy monitoring.
+Hello Therma is the original brand of Therma, Inc., the San Francisco cold-chain and cooling intelligence company founded in 2014 by Manik Suri, which rebranded as GlacierGrid in February 2024 and now operates as GlacierGrid, Inc. out of Richmond, Virginia. The platform pairs LoRaWAN temperature and humidity sensors, cellular monitoring hubs and BAS integrations with a cloud dashboard that gives multi-unit retail, restaurant, convenience-store, education and fitness operators remote refrigeration and HVAC monitoring, automated temperature logging for HACCP-style food-safety reporting, equipment-failure prediction and energy optimization across 50 to 500 locations. GlacierGrid publishes no REST, GraphQL or SOAP API and no developer portal; its single machine-callable surface is a first-party remote Model Context Protocol server at mcp.glaciergrid.com, marketed as the GlacierGrid Connector for Claude, which exposes read-only facility, sensor, alert and energy data to an agent under OAuth with account-scoped permissions.
 
-GlacierGrid publishes no REST, GraphQL or SOAP API and no developer portal. Its one machine-callable
-surface is a first-party remote **Model Context Protocol** server at `https://mcp.glaciergrid.com/mcp`,
-marketed as the *GlacierGrid Connector for Claude* — read-only, OAuth-protected, account-scoped.
+**Areas:** Company · IoT · Energy · Sustainability · Cold Chain · Temperature Monitoring · Refrigeration · HVAC · Building Automation · Food Safety · Facilities Management · Restaurant
 
-- Company site: https://www.glaciergrid.com/
-- Connector (MCP) docs: https://www.glaciergrid.com/connector
-- Status page: https://www.glaciergrid.com/status-page
+## Hello Therma on APIs.io
 
-> The legacy `hellotherma.com` domain no longer belongs to this company: it now 301s to
-> `www.therma.com`, an unrelated California mechanical/HVAC contractor.
+Everything profiled for Hello Therma is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/hello-therma/](https://apis.io/providers/hello-therma/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [GlacierGrid MCP Server](https://apis.io/apis/hello-therma/glaciergrid-mcp-server/) — First-party remote Model Context Protocol server exposing read-only GlacierGrid facility monitoring data — HVAC, refrigeration, energy and savings, sensor…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [GlacierGrid MCP Server](https://apis.io/servers/hello-therma/glaciergrid-mcp-server/)
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Hello Therma Domain Security](https://apis.io/security/hello-therma/hello-therma-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Hello Therma Scopes](https://apis.io/scopes/hello-therma/hello-therma-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Hello Therma Plans Pricing](https://apis.io/plans/hello-therma/hello-therma-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Hello Therma Rate Limits](https://apis.io/rate-limits/hello-therma/hello-therma-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.glaciergrid.com/)
+- [Documentation](https://www.glaciergrid.com/connector)
+- [Sign up](https://dashboard.glaciergrid.com/)
+- [Support](https://www.glaciergrid.com/helpcenter)
+- [Changelog](https://www.glaciergrid.com/resources/product-features)
+- [Blog](https://www.glaciergrid.com/company/newsroom)
+- [Terms of service](https://www.glaciergrid.com/terms)
+- [Privacy policy](https://www.glaciergrid.com/privacy)
+- [GitHub](https://github.com/glaciergrid)
+- [Status](https://www.glaciergrid.com/status-page)
+
+## API Evangelist rating
+
+**Kin Score 30.1** — thin · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 78.3 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 55.3 |
+| Developer ergonomics | 16.7 |
+| Access clarity | 28.9 |
+
+**Agent readiness 32.7** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 38.5** — Energy & Utilities
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/hello-therma/](https://apis.io/providers/hello-therma/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Hello Therma: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/hello-therma/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
